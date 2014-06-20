@@ -2,8 +2,6 @@ package org.qbproject.api.routing
 
 import org.specs2.mutable._
 import org.qbproject.api.routing.QBRouterDSL.{ GET => qbGET, POST => qbPOST, _ }
-import org.qbproject.api.routing.QBRouteWrapping._
-import org.qbproject.api.routing.QBRouterUtil.QBRouteCollector
 import play.core.Router
 import play.api.mvc._
 import play.api.test.WithApplication

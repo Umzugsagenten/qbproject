@@ -2,9 +2,10 @@ package org.qbproject.api.routing
 
 import scala.collection.mutable.ListBuffer
 import play.api.mvc.Handler
-import org.qbproject.api.routing.QBRouterUtil._
+import org.qbproject.api.routing.internal.QBRouterUtil._
+import org.qbproject.api.routing.internal._
 
-object QBRouterDSL {
+object QBRouterDSL extends QBRouteWrapping {
 
   val GET = "GET"
   val POST = "POST"

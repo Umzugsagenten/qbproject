@@ -1,4 +1,4 @@
-package org.qbproject.api.routing
+package org.qbproject.api.routing.internal
 
 import org.specs2.mutable._
 import org.qbproject.api.routing._

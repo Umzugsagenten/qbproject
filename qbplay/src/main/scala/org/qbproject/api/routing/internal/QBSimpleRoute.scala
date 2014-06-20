@@ -1,8 +1,8 @@
-package org.qbproject.api.routing
+package org.qbproject.api.routing.internal
 
 import play.api.mvc.{ RequestHeader, Handler }
-import scala.util.matching.Regex
 import org.qbproject.api.routing.QBRouterDSL._
+import org.qbproject.api.routing.QBRoute
 
 trait QBSimpleRoute extends QBRoute {
 

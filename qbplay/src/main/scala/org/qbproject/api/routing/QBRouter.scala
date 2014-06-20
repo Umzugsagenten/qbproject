@@ -7,8 +7,14 @@ import play.api.mvc.Handler
 import play.api.mvc.Action
 import scala.collection.mutable.ListBuffer
 
-// TODO: Composite router
-trait QBRouter extends QBBaseRouter
+/**
+ * QBRouter 
+ */
+trait QBRouter extends QBBaseRouter {
+  
+  def qbRoutes: List[QBRoute]
+
+}
 
 object QBRouter {
   def apply(_routes: List[QBRoute]): QBRouter = new QBRouter {
