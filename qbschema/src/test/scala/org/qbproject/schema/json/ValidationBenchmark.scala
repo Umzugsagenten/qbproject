@@ -30,7 +30,8 @@ object ValidationBenchmark extends PerformanceTest {
   performance of "QBValidator" in {
     measure method "validate" in {
       using(schemasAndInstances) in { t =>
-        val result = QBValidator.validate(t._1)(t._2)
+
+      val result = QBValidator.validate(t._1)(t._2)
         if (result.isInstanceOf[JsError]) {
           println(result)
         }
@@ -63,5 +64,54 @@ object ValidationBenchmark extends PerformanceTest {
       }
     }
   }
+
+}
+
+object BenchmarkInstanceGenerator
+
+object BenchmarkSchema {
+
+  val tire = qbClass(
+    "diameter" -> qbNumber,
+    "width" -> qbNumber,
+    "color" -> qbString,
+    "material" -> qbString
+  )
+
+  val color = qbEnum("red", "blue", "green", "yellow", "magenta", "cyan")
+
+  val auto = qbClass(
+    "meta" -> qbClass(
+      "name" -> qbString,
+      "make" -> qbString,
+      "year" -> qbString,
+      "price" -> qbNumber
+    ),
+    "extra" -> qbList(qbClass(
+      "name" -> qbString,
+      "description" -> qbText,
+      "price" -> qbNumber
+    )),
+    "tires" -> qbList(tire),
+    "technicalData" -> qbClass(
+      "engine" -> qbClass(
+        "capacity" -> qbNumber,
+        "torque" -> qbNumber,
+        "power" -> qbNumber
+      ),
+      "maxVelocity" -> qbNumber,
+      "weight" -> qbNumber
+
+    ),
+    "interior" -> qbClass(
+      "colorOne" -> color,
+      "colorTwo" -> color,
+      "colorThree" -> color
+    ),
+    "exterior" -> qbClass(
+      "colorOne" -> color,
+      "colorTwo" -> color
+    )
+  )
 
 }
